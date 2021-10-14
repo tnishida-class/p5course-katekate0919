@@ -11,7 +11,7 @@ function setup(){
       else{fill(219, 64, 201);
       }// ここを変えます
       if(i % 2 == 0){
-      fill(71, 252, 252)
+      fill(71, 252, 252);
       }
       console.log(i, j);
       rect(i * 10, j * 10, 5, 5);
