@@ -1,12 +1,14 @@
-let x,a,b;
+let x,a,b,vb;
+const g = 1;
+const vbMax = 30;
+
 function setup(){
   createCanvas(windowWidth, windowHeight);
   x = width/32;
   a = width/32;
   b = (width/32)*15;
-}
-function windowResized(){
-  resizeCanvas(windowWidth, windowHeight);
+  va = 8;
+  vb = 8;
 }
 
 function draw(){
@@ -32,19 +34,34 @@ function draw(){
       rect(size*i, size*(j+16), size, size);
     }
   }
+
   fill(255);
   ellipse(x,size*2,size*2,size*1);
   ellipse(x+size*6,size*4,size*3,size*2);
   ellipse(x+size*13,size*3,size*2,size*1);
   ellipse(x+size*20,size*2,size*4,size*3);
   ellipse(x+size*27,size*4,size*4,size*3);
-  x += 1;
+  x += 0.1;
   if (x > width){x = 0;}
 
-  fill(255,0,0);
+
+  fill(255,0,0)
   ellipse(a,b,20,80);
-  if(keyIsDown(LEFT_ARROW)){a -= 5;}
-  if(keyIsDown(RIGHT_ARROW)){a += 5;}
-  if(keyIsDown(UP_ARROW)){b -= 5;}
-  if(keyIsDown(DOWN_ARROW) && b<=(width/32)*15){b += 5;}
+
+  if(keyIsDown(LEFT_ARROW)){va -= 0.1;}
+  if(keyIsDown(RIGHT_ARROW)){va += 0.1;}
+  if(b >= height - size*3 && keyIsDown(" ".charCodeAt(0))){vb -= -20;}
+
+  a += va;
+  b += vb;
+
+  vb = constrain(vb + g, -vbMax, vbMax);
+
+  if(b > height - size*3){ vb = 0; }
+  a = constrain(a, 0, width);
+  b = constrain(b, 0, height-size*3);
+}
+
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
 }
