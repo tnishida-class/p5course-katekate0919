@@ -7,8 +7,8 @@ function setup(){
   x = width/32;
   a = width/32;
   b = (width/32)*15;
-  va = 8;
-  vb = 8;
+  va = 0;
+  vb = 0;
 }
 
 function draw(){
@@ -44,7 +44,7 @@ function draw(){
   x += 0.1;
   if (x > width){x = 0;}
 
-
+//マリオ
   fill(255,0,0)
   ellipse(a,b,20,80);
 
