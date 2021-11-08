@@ -19,12 +19,12 @@ function setup(){
   // BLANK[1]
   for(let i = 0; i < scores.length; i++){
     if(i == 0){
-         strokeWeight(1);
-         arc(200,200,400,400,-PI/2,2*PI*scores[i]/total-PI/2,PIE);
+      strokeWeight(1);
+      arc(200,200,400,400,-HALF_PI,2*PI*scores[i]/total-HALF_PI,PIE);
     }
     else{
-       strokeWeight(1);
-       arc(200,200,400,400,2*PI*scores[i-1]/total-PI/2,2*PI*scores[i]/total-PI/2,PIE);
+      strokeWeight(1);
+      arc(200,200,400,400,2*PI*scores[i-1]/total-HALF_PI,2*PI*scores[i]/total-HALF_PI,PIE);
     }
   }
 }
