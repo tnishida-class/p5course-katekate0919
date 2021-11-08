@@ -54,7 +54,7 @@ function setup(){
     else if(scores[i] == smallest){
       fill(0,0,255)
     }
-    else{fill(0)}
+    else{fill(120)}
     rect(i * dx + 2, height - h, dx - 4, h);
     fill(0);
     text(scores[i].toPrecision(3), i * dx, height - h);
