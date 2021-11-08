@@ -7,12 +7,24 @@ function setup(){
   // 配列をランダムに初期化する
   let scores = [];
   for(let i = 0; i < 10; i++){
-    scores[i] = random(20, 100); // 60以上100未満のランダムな数を代入
+    scores[i] = random(60, 100); // 60以上100未満のランダムな数を代入
   }
+    console.log(scores);
 
   // 円グラフを描くには割合が必要なので合計を計算しておく
   let total = 0;
-  for(let i = 0; i < scores.length; i++){ total += scores[i]; }
-
+  for(let i = 0; i < scores.length; i++){
+     total += scores[i];
+   }
   // BLANK[1]
+  for(let i = 0; i < scores.length; i++){
+    if(i == 0){
+         strokeWeight(1);
+         arc(200,200,400,400,-PI/2,2*PI*scores[i]/total-PI/2,PIE);
+    }
+    else{
+       strokeWeight(1);
+       arc(200,200,400,400,2*PI*scores[i-1]/total-PI/2,2*PI*scores[i]/total-PI/2,PIE);
+    }
+  }
 }
