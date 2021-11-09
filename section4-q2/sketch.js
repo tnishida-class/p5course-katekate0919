@@ -16,15 +16,17 @@ function setup(){
   for(let i = 0; i < scores.length; i++){
      total += scores[i];
    }
+  let a = 0;
   // BLANK[1]
   for(let i = 0; i < scores.length; i++){
     if(i == 0){
       strokeWeight(1);
-      arc(200,200,400,400,-HALF_PI,2*PI*scores[i]/total-HALF_PI,PIE);
+      arc(200, 200, 400, 400, -HALF_PI, 2*PI*scores[i]/total-HALF_PI, PIE);
     }
     else{
+      a += 2*PI*scores[i-1]/total;
       strokeWeight(1);
-      arc(200,200,400,400,2*PI*scores[i-1]/total-HALF_PI,2*PI*scores[i]/total-HALF_PI,PIE);
+      arc(200, 200, 400, 400, a-HALF_PI, 2*PI*scores[i]/total+a-HALF_PI, PIE);
     }
   }
 }
