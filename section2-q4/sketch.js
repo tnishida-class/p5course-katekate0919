@@ -1,4 +1,4 @@
-// ギリシャ国旗
+// アメリカ国旗
 function setup() {
   const blue = color(50, 50, 120);
   const red = color(190, 20, 15);
