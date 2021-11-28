@@ -3,16 +3,43 @@
 // 吹き出しにしっぽを付けてみよう
 function setup(){
   createCanvas(400, 400);
-  background(255);
-  balloon("I love keyakizaka46");
 }
 
-function balloon(t){
+function draw(){
+  background(255);
+  balloon("I love keyakizaka46", mouseX, mouseY);
+}
+
+function balloon(t, x, y){
   let w = textWidth(t);
   let h = textAscent() + textDescent();
   let p = 2;
-  fill(0);
-  rect(0, 0, w + p * 2, h + p * 2);
-  fill(255);
-  text(t, p, h + p);
+
+  if(x <= 200 && y <= 200){
+  fill(130, 0, 181);
+  rect(x, y, w + p * 2, h + p * 2, 30, 30, 5, 30);
+  noStroke()
+  triangle(x + w + 3, y + h, x + w - 15, y + h, x + w + 5, y + h + 10,);
+}
+  else if(x >= 200 && y <= 200){
+  fill(130, 0, 181);
+  rect(x, y, w + p * 2, h + p * 2, 30, 30, 30, 5);
+  noStroke()
+  triangle(x, y + h, x - 5, y + h + 10, x + 15, y + h,);
+}
+  else if (x <= 200 && y >= 200){
+  fill(130, 0, 181);
+  rect(x, y, w + p * 2, h + p * 2, 30, 5, 30, 30);
+  noStroke()
+  triangle(x + w + 1, y + 1, x + w - 15, y, x + w + 5, y - 10,);
+}
+  else{
+  fill(130, 0, 181);
+  rect(x, y, w + p * 2, h + p * 2, 5, 30, 30, 30);
+  noStroke()
+  triangle(x, y + 3, x + 15, y, x - 5, y - 10,);
+}
+
+  fill(245, 130, 235);
+  text(t, x + p, y + h + p);
 }
